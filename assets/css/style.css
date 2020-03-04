@@ -5,12 +5,26 @@
     
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+    background-image: url("https://i.pinimg.com/originals/c1/2d/3c/c12d3c62e2922ddcd33affdc372d8ec1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+
+
 #start {
     margin-top: 25px;
+    
+
 }
 
 .lead {
     margin: 20px;
+    font-size: 24px;
+    
 }
 
 
@@ -24,4 +38,8 @@
 
 .startHeader {
     font-family: 'waltograph_uibold';
+}
+
+p {
+    font-size: 18px;
 }
