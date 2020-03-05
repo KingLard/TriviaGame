@@ -78,11 +78,33 @@ p {
     font-size: 24px;
 }
 
-
-#answers {
-    
-    margin-left: 10%;
+li {
+    margin: 0;
 }
+    
+.btn-primary {
+    width: 60%;
+    height: 50px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 150px;
+    font-size: 18px;
+
+}
+
+ul {
+    list-style: none;
+    
+}
+
+#question {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+
+
 
 
 
