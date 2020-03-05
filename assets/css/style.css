@@ -7,7 +7,7 @@
 }
 
 #questionImage {
-    width: 400px;
+    width: 600px;
     height: 400px;
 }
 
@@ -51,6 +51,7 @@ body {
 
 #timer {
     font-size: 96px;
+    text-align: left;
 }
 
 .lead {

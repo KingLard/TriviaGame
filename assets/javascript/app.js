@@ -1,4 +1,4 @@
-var gameScreenCode = '<div class="row"><div class="col-lg-12"><h1 class="display-4 startHeader">disney pixar trivia game</h1></div></div><div class="row"><div class="col-lg-12"><img id="questionImage" src="https://lumiere-a.akamaihd.net/v1/images/eu_ts4_trailer-stories_hero_m_ff30b1d6.jpeg?region=0,0,750,663" alt="game image"></div></div><div class="row"><div class="col-lg-12"><div id="question" class="questionText">This is a movie question example to see what the size is This is a movie question example to see what the size is</div></div></div><div class="row"><div class="col-lg-8"><div id="answers" class="questionText"><p>answer one</p><p>answer one</p><p>answer one</p><p>answer one</p></div></div><div class="col-lg-4"><div id="timer" class="questionText"></div></div></div>'
+var gameScreenCode = '<div class="row"><div class="col-lg-12"><h1 class="display-4 startHeader">disney pixar trivia game</h1></div></div><div class="row"><div class="col-lg-12"><img id="questionImage" src="" alt="game image"></div></div><div class="row"><div class="col-lg-12"><div id="question" class="questionText"></div></div></div><div class="row"><div class="col-lg-8"><div id="answers" class="questionText"><span id="answer1"></span><span id="answer2"></span><span id="answer3"></span><span id="answer4"></span></div></div><div class="col-lg-4"><div id="timer" class="questionText"></div></div></div>'
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var questionAnswered = true;
@@ -120,6 +120,8 @@ function startGame() {
 $("#start").on("click", function() {
     $("#gameScreen").append(gameScreenCode);
     $(".startScreen").empty();
+    $("#questionImage").attr("src", questionArray[0].image);
+    $("#question").append(questionArray[0].question);
     countDown();
 });
 //start timer of 10 seconds
