@@ -5,6 +5,7 @@ var questionAnswered = true;
 var timeLeft;
 var n = 10;
 
+
 var questionArray = [{
     name: "monsters1",
     image: "https://images.metadata.sky.com/pd-image/7eee14a3-093b-4492-9599-462899b3b567/16-9",
@@ -89,7 +90,19 @@ var questionArray = [{
 
 //functions =====================================================
 
-
+function nextQuestion(x) {
+    $("#questionImage, #question, #answer1, #answer2, #answer3, #answer4").empty();
+    n = 10;
+    countDown();
+    questionArray.shift();
+    $("#questionImage").attr("src", questionArray[x].image);
+    $("#question").append(questionArray[x].question);
+    $("#answer1").append(questionArray[x].answer1);
+    $("#answer2").append(questionArray[x].answer2);
+    $("#answer3").append(questionArray[x].answer3);
+    $("#answer4").append(questionArray[x].answer4);
+    
+}
 
 //Start Countdown Function--------------------------------------
 
@@ -97,6 +110,11 @@ function countDown(){
     n--;
     if(n > 0){
        setTimeout(countDown,1000);
+       questionAnswered = false;
+    }
+    else if(n == 0) {
+        $("#rightOrWrong").text("Time's Up!");
+        $("#modal").modal("show");
     }
     $("#timer").html(n);
  }
@@ -107,7 +125,7 @@ function countDown(){
 
 function startGame() {
     countDown();
-
+    
 }
 
 
@@ -126,8 +144,28 @@ $("#start").on("click", function() {
     $("#answer2").append(questionArray[0].answer2);
     $("#answer3").append(questionArray[0].answer3);
     $("#answer4").append(questionArray[0].answer4);
+    
     countDown();
 });
+
+
+
+$("#nextQuestion").on("click", function() {
+        
+        nextQuestion(0);
+        
+        
+
+    
+    
+}); 
+
+
+
+
+
+
+
 //start timer of 10 seconds
 
 //display timer on page
