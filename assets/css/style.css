@@ -27,10 +27,11 @@
 body {
     font-family: 'Lato', sans-serif;
     background-image: url("https://wallpaperplay.com/walls/full/c/a/8/396500.jpg");
-    background-position: center center;
+    background-position: 0px 10px;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    
+    
     
     
 }
