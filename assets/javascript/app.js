@@ -196,4 +196,3 @@ $("#answer1").on("click", function() {
 //add 1 to correct or incorrect variable
 
 //display a button to go on to the next question
-
