@@ -193,6 +193,9 @@ ul {
         height: 60px;
     }
 
+    #rightOrWrong {
+        text-align: center;
+    }
 
 }
 
