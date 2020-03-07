@@ -36,6 +36,9 @@ body {
     
 }
 
+.hidden {
+    display: none;
+}
 
 #start {
     margin-top: 25px;

@@ -4,7 +4,7 @@ var incorrectAnswers = 0;
 var questionAnswered = true;
 var timeLeft;
 var n = 10;
-
+var answerValue = "";
 
 var questionArray = [{
     name: "monsters1",
@@ -146,8 +146,8 @@ function startGame() {
 
 //when start button is pressed:
 $("#start").on("click", function() {
-    $("#gameScreen").append(gameScreenCode);
-    $(".startScreen").empty();
+    $(".startScreen").css("display", "none");
+    $("#hidden").toggleClass("hidden");
     $("#questionImage").attr("src", questionArray[0].image);
     $("#question").append(questionArray[0].question);
     $("#answer1").append(questionArray[0].answer1);
@@ -157,6 +157,11 @@ $("#start").on("click", function() {
     
     countDown();
 });
+
+$(".answerButton").on("click", function() {
+    var answerValue = $(this).val();
+    alert(answerValue);
+})
 
 
 
@@ -171,8 +176,7 @@ $("#nextQuestion").on("click", function() {
 }); 
 
 $("#answer1").on("click", function() {
-    var value = this.val()
-    console.log(value);
+
 });
 
 
