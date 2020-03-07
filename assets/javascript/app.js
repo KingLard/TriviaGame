@@ -7,6 +7,8 @@ var n = 11;
 var answerValue = "";
 var timer = "";
 
+//array of question objects and all of their info---------------------------------------------
+
 var questionArray = [{
     name: "monsters1",
     image: "https://images.metadata.sky.com/pd-image/7eee14a3-093b-4492-9599-462899b3b567/16-9",
@@ -101,7 +103,7 @@ var questionArray = [{
     name: "final"
 }];
 
-//functions =====================================================
+//functions ==========================================================================
 
 function nextQuestion(x) {
     $("#questionImage, #question, #answer1, #answer2, #answer3, #answer4").empty();
@@ -117,7 +119,7 @@ function nextQuestion(x) {
     
 }
 
-//Start Countdown Function--------------------------------------
+//Start Countdown Function-------------------------------------------------------------
 
 function countDown(){
     n--;
@@ -133,22 +135,11 @@ function countDown(){
     $("#timer").html(n);
  }
 
-
-
-//Start the game Function------------------------------------------
-
-function startGame() {
-    countDown();
-    
-}
-
-
-
-
-
-
+//start game functionality==================================================================
 
 //when start button is pressed:
+//hide the start screen, display the game screen
+//append a question, image, and answer choices to the screen
 $("#start").on("click", function() {
     $(".startScreen").css("display", "none");
     $("#hidden").toggleClass("hidden");
@@ -158,9 +149,15 @@ $("#start").on("click", function() {
     $("#answer2").append(questionArray[0].answer2);
     $("#answer3").append(questionArray[0].answer3);
     $("#answer4").append(questionArray[0].answer4);
-    
     countDown();
 });
+
+
+//when an answer button is pressed:
+//retrieve the value of the button pressed
+//compare value to value of the object to determine if the answer is correct
+//clear the timer
+//add to the correct or incorrect variable
 
 $(".answerButton").on("click", function() {
     var answerValue = $(this).val();
@@ -177,26 +174,20 @@ $(".answerButton").on("click", function() {
     }
 })
 
-
-
+//when the next question button is pressed
+//if the name of the object is not equal to the final object in the array, move on to the next object/question
 $("#nextQuestion").on("click", function() {
     if (questionArray[1].name !== "final") {
         nextQuestion(0);
+//when the last array item is reached, append final scores to endModal
+//show modal with final score variables appended
     } else {
         $("#correct").append(correctAnswers);
         $("#incorrect").append(incorrectAnswers);
         $("#endModal").modal("show");
-    }
-        
-        
-
-    
-    
+    } 
 }); 
 
-$("#answer1").on("click", function() {
-
-});
 
 
 
@@ -204,18 +195,3 @@ $("#answer1").on("click", function() {
 
 
 
-//start timer of 10 seconds
-
-//display timer on page
-
-//display first question
-
-//if timer runs out display incorrect
-
-//when answer is clicked determine if answer is correct
-
-//tell the user if the answer was correct or incorrect
-
-//add 1 to correct or incorrect variable
-
-//display a button to go on to the next question
