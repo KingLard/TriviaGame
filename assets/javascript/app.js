@@ -160,7 +160,11 @@ $("#start").on("click", function() {
 
 $(".answerButton").on("click", function() {
     var answerValue = $(this).val();
-    alert(answerValue);
+    if (answerValue == questionArray[0].rightAnswerValue){
+        alert("correct");
+    } else {
+        alert("incorrect");
+    }
 })
 
 
