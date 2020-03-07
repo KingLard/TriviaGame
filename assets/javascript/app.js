@@ -3,8 +3,9 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var questionAnswered = true;
 var timeLeft;
-var n = 10;
+var n = 11;
 var answerValue = "";
+var timer = "";
 
 var questionArray = [{
     name: "monsters1",
@@ -96,13 +97,15 @@ var questionArray = [{
     answer3: "Red",
     answer4: "Baby Blue",
     rightAnswerValue: "4" 
+}, {
+    name: "final"
 }];
 
 //functions =====================================================
 
 function nextQuestion(x) {
     $("#questionImage, #question, #answer1, #answer2, #answer3, #answer4").empty();
-    n = 10;
+    n = 11;
     countDown();
     questionArray.shift();
     $("#questionImage").attr("src", questionArray[x].image);
@@ -119,12 +122,13 @@ function nextQuestion(x) {
 function countDown(){
     n--;
     if(n > 0){
-       setTimeout(countDown,1000);
+       timer = setTimeout(countDown,1000);
        questionAnswered = false;
     }
     else if(n == 0) {
         $("#rightOrWrong").text("Time's Up!");
         $("#modal").modal("show");
+        incorrectAnswers ++;
     }
     $("#timer").html(n);
  }
@@ -161,9 +165,15 @@ $("#start").on("click", function() {
 $(".answerButton").on("click", function() {
     var answerValue = $(this).val();
     if (answerValue == questionArray[0].rightAnswerValue){
-        alert("correct");
+        clearTimeout(timer);
+        $("#rightOrWrong").text("Thats right!");
+        $("#modal").modal("show");
+        correctAnswers ++;
     } else {
-        alert("incorrect");
+        clearTimeout(timer);
+        $("#rightOrWrong").text("Not quite, You got the next one!");
+        $("#modal").modal("show");
+        incorrectAnswers ++
     }
 })
 
