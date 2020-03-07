@@ -170,5 +170,31 @@ ul {
     }
 }
 
+@media screen and (max-width: 420px) {
+    #answers {
+        width: 100%;
+        margin-left: -35%;
+
+    }
+
+    .startHeader {
+        font-size: 24px;
+    }
+
+    #question {
+        font-size: 18px;
+    }
+
+    #timer {
+        font-size: 48px;
+    }
+
+    .answerButton {
+        height: 60px;
+    }
+
+
+}
+
 
 
