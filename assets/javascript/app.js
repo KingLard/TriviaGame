@@ -134,77 +134,7 @@ function countDown(){
 
  //Restart function---------------------------------------------------------------------------------------------------------------
 
- 
-    
-     
-
-
-
-
-
-
-
-//start game functionality==================================================================
-
-//when start button is pressed:
-//hide the start screen, display the game screen
-//append a question, image, and answer choices to the screen
-$("#start").on("click", function() {
-    $(".startScreen").toggleClass("hidden");
-    $("#hidden").toggleClass("hidden");
-    $("#questionImage").attr("src", questionArray[0].image);
-    $("#question").append(questionArray[0].question);
-    $("#answer1").append(questionArray[0].answer1);
-    $("#answer2").append(questionArray[0].answer2);
-    $("#answer3").append(questionArray[0].answer3);
-    $("#answer4").append(questionArray[0].answer4);
-    countDown();
-});
-
-
-//when an answer button is pressed:
-//retrieve the value of the button pressed
-//compare value to value of the object to determine if the answer is correct
-//clear the timer
-//add to the correct or incorrect variable
-
-$(".answerButton").on("click", function() {
-    var answerValue = $(this).val();
-    if (answerValue == questionArray[0].rightAnswerValue){
-        clearTimeout(timer);
-        $("#rightOrWrong").text("Thats right!");
-        $("#modal").modal({backdrop: 'static', keyboard: false, show: true});
-        correctAnswers ++;
-    } else {
-        clearTimeout(timer);
-        $("#rightOrWrong").text("Not quite, You got the next one!");
-        $("#modal").modal({backdrop: 'static', keyboard: false, show: true});
-        incorrectAnswers ++
-    }
-})
-
-
-
-
-//when the next question button is pressed
-//if the name of the object is not equal to the final object in the array, move on to the next object/question
-$("#nextQuestion").on("click", function() {
-    if (questionArray[1].name !== "final") {
-        nextQuestion(0);
-    }
-
-//when the last array item is reached, append final scores to endModal
-//show modal with final score variables appended
-     else {
-        $("#correct").append(correctAnswers);
-        $("#incorrect").append(incorrectAnswers);
-        $("#endModal").modal({backdrop: 'static', keyboard: false, show: true});
-    } 
-}); 
-
-//restart the game
-
-$("#restart").on("click", function() {
+ function restart() {
     $(".startScreen").toggleClass("hidden");
     $("#hidden").toggleClass("hidden");
     $("#correct, #incorrect, #questionImage, #question, #answer1, #answer2, #answer3, #answer4").empty();
@@ -304,7 +234,84 @@ $("#restart").on("click", function() {
 
     correctAnswers = 0;
     incorrectAnswers = 0;
+    n = 11;
+
+ }
+    
+     
+
+
+
+
+
+
+
+//start game functionality====================================================================================================================
+
+
+
+
+//when start button is pressed:
+//hide the start screen, display the game screen
+//append a question, image, and answer choices to the screen
+$("#start").on("click", function() {
+    $(".startScreen").toggleClass("hidden");
+    $("#hidden").toggleClass("hidden");
+    $("#questionImage").attr("src", questionArray[0].image);
+    $("#question").append(questionArray[0].question);
+    $("#answer1").append(questionArray[0].answer1);
+    $("#answer2").append(questionArray[0].answer2);
+    $("#answer3").append(questionArray[0].answer3);
+    $("#answer4").append(questionArray[0].answer4);
+    countDown();
+});
+
+
+//when an answer button is pressed:
+//retrieve the value of the button pressed
+//compare value to value of the object to determine if the answer is correct
+//clear the timer
+//add to the correct or incorrect variable
+
+$(".answerButton").on("click", function() {
+    var answerValue = $(this).val();
+    if (answerValue == questionArray[0].rightAnswerValue){
+        clearTimeout(timer);
+        $("#rightOrWrong").text("Thats right!");
+        $("#modal").modal({backdrop: 'static', keyboard: false, show: true});
+        correctAnswers ++;
+    } else {
+        clearTimeout(timer);
+        $("#rightOrWrong").text("Not quite, You got the next one!");
+        $("#modal").modal({backdrop: 'static', keyboard: false, show: true});
+        incorrectAnswers ++
+    }
 })
+
+
+
+
+//when the next question button is pressed
+//if the name of the object is not equal to the final object in the array, move on to the next object/question
+$("#nextQuestion").on("click", function() {
+    if (questionArray[1].name !== "final") {
+        nextQuestion(0);
+    }
+
+//when the last array item is reached, append final scores to endModal
+//show modal with final score variables appended
+     else {
+        $("#correct").append(correctAnswers);
+        $("#incorrect").append(incorrectAnswers);
+        $("#endModal").modal({backdrop: 'static', keyboard: false, show: true});
+    } 
+}); 
+
+//restart the game
+
+$("#restart").on("click", function() {
+    restart();
+});
 
 
 
