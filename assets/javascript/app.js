@@ -180,8 +180,13 @@ $(".answerButton").on("click", function() {
 
 
 $("#nextQuestion").on("click", function() {
-        
+    if (questionArray[1].name !== "final") {
         nextQuestion(0);
+    } else {
+        $("#correct").append(correctAnswers);
+        $("#incorrect").append(incorrectAnswers);
+        $("#endModal").modal("show");
+    }
         
         
 

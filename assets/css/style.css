@@ -53,6 +53,10 @@ body {
 
 }
 
+#endModal p {
+    text-align: center;
+}
+
 #timer {
     font-size: 96px;
     text-align: left;
